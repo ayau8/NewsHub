@@ -17,7 +17,7 @@ function Menu({ active, setActive, setCategory }) {
   return (
     <nav className="menu">
       <ul>
-        {links.map(link => {
+        {links.map(link => (
           <li
             key={link.id}
             className={active === link.id ? "active" : "inactive"}
@@ -25,7 +25,7 @@ function Menu({ active, setActive, setCategory }) {
           >
             {link.name}
           </li>
-        })}
+        ))}
       </ul>
     </nav>
   )
