@@ -1,4 +1,4 @@
-function NewsItem(item) {
+function NewsItem({ item }) {
   const websiteUrl = item.url
   const website = websiteUrl.split('https://').pop().split('/')[0]
 
@@ -9,11 +9,11 @@ function NewsItem(item) {
   return (
     <a href={item.url} className="article">
       <div className="article-image">
-        <img src="{item.urlToImage}" alt="{item.title}" />
+        <img src={item.urlToImage} alt={item.title} />
       </div>
       <div className="article-content">
         <div className="article-source">
-          <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=16"`} alt="{item.source.id}" />
+          <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=16"`} alt={item.source.id} />
           <span>{item.source.name}</span>
         </div>
         <div className="article-title">
