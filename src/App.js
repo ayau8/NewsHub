@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import Menu from './components/Menu'
+import Search from './components/Search'
 import NewsGrid from "./components/NewsGrid"
 
 function App() {
@@ -20,9 +23,19 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">NEWS</h1>
+      <h1 className="title">
+        <FontAwesomeIcon
+          icon={faNewspaper}
+          className="bounce"
+          style={{ color: "#362f9d" }} /> Daily Hits
+      </h1>
+      <div className="search-bar-container">
+        <Search />
+      </div>
       <Menu active={active} setActive={setActive} setCategory={setCategory} />
+      <h1 className="subtitle">Global News</h1>
       <NewsGrid items={items} />
+      <h1 className="subtitle">TechCrunch News</h1>
       <NewsGrid items={techCrunchNews} />
     </div>
   );
