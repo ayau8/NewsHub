@@ -25,11 +25,12 @@ body {
   color: navy;
 }
 
+/* search-bar */
+
 .search-bar-container {
   padding: 1.5vh 0;
-  width: 50%;
+  width: 40%;
   margin: auto;
-  display: flex;
   align-items: center;
   min-width: 200px;
 }
@@ -58,6 +59,16 @@ body {
 .searchwrapper input:focus {
   outline: none;
 }
+
+.search-result {
+  padding: 10px 20px;
+}
+
+.search-result:hover {
+  background-color: #efefef;
+}
+
+/* menu */
 
 .menu {
   margin: 1.5vh 0;
@@ -155,6 +166,7 @@ body {
   width: 100%;
   height: 100%;
   transition: 0.7s ease-in-out;
+  object-fit: cover;
 }
 
 .article:hover .article-image img {
