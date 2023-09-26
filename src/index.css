@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,16 +7,25 @@
 }
 
 body {
-  font-family: sans-serif;
-  padding: 0 2em;
+  font-family: 'Noticia Text', serif;
+}
+
+.Landing {
+  position: relative;
 }
 
 .title {
   text-align: center;
-  margin-top: 1em;
+  height: 400px;
   margin-bottom: 20px;
   font-size: 4em;
-  padding: 20px;
+  padding: 100px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1546422904-90eab23c3d7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2972&q=80');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  border-radius: 0 0 38px 38px;
+  color: white;
 }
 
 .subtitle {
@@ -23,6 +34,7 @@ body {
   font-size: 2.5em;
   padding: 30px;
   color: navy;
+
 }
 
 /* search-bar */
@@ -33,18 +45,23 @@ body {
   margin: auto;
   align-items: center;
   min-width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  opacity: 0.8;
 }
 
 .searchwrapper {
   background-color: white;
   width: 100%;
   border-radius: 10px;
-  height: 3.25rem;
+  height: 5rem;
   padding: 0 15px;
   box-shadow: 0px 0px 8px #ddd;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 4px solid black;
 }
 
 .searchwrapper input {
@@ -70,8 +87,45 @@ body {
 
 /* menu */
 
+.country {
+  margin-top: 1.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.country li {
+  display: inline-block;
+  margin: 0.5em;
+  font-size: 1.2em;
+  padding: 1em 1.5em;
+  background: #eee;
+  border-radius: 3em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.country .inactive {
+  background: #eee;
+}
+
+.country .active {
+  background-color: navy;
+  color: white;
+}
+
+.country .active:hover {
+  background: lightblue;
+}
+
+.country .inactive:hover {
+  background: #dddddd;
+}
+
+/* menu */
+
 .menu {
-  margin: 1.5vh 0;
+  margin-top: 1vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +133,7 @@ body {
 
 .menu li {
   display: inline-block;
-  margin: 1em;
+  margin: 0.5em;
   font-size: 1.2em;
   padding: 1em 1.5em;
   background: #eee;

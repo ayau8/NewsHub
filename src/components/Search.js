@@ -6,7 +6,7 @@ function Search() {
   const [filterData, setFilterData] = useState([])
 
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=68d30108d9ba47ddb7184f4ad79e9f97`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=6e09b99946874e6fbbc5b4b9aea77c73`)
       .then(res => res.json())
       .then(data => {
         setFilterData(data.articles);
