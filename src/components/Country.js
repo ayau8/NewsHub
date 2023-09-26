@@ -12,7 +12,7 @@ function Country({ activeCountry, setActiveCountry, setCountry }) {
   }
 
   return (
-    <nav className="menu">
+    <nav className="country">
       <ul>
         {countries.map(country => (
           <li
