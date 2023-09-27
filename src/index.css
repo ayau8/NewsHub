@@ -79,10 +79,11 @@ body {
 
 .search-result {
   padding: 10px 20px;
+  background-color: white;
 }
 
 .search-result:hover {
-  background-color: #efefef;
+  background-color: lightblue;
 }
 
 /* menu */

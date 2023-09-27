@@ -14,12 +14,13 @@ function App() {
   const [active, setActive] = useState(1)
   const [category, setCategory] = useState("general")
 
+
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=6e09b99946874e6fbbc5b4b9aea77c73`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=bf3aaadad8bb4a659eeabcf555c66ac0`)
       .then(res => res.json())
       .then(data => setItems(data.articles))
 
-    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=6e09b99946874e6fbbc5b4b9aea77c73`)
+    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=bf3aaadad8bb4a659eeabcf555c66ac0`)
       .then(res => res.json())
       .then(data => setTechCrunchNews(data.articles))
   }, [country, category])
