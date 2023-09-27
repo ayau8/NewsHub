@@ -1,43 +1,69 @@
-import React, { useState, useEffect } from 'react'
-import { FaSearch } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { FaSearch } from 'react-icons/fa';
 
 function Search() {
-  const [data, setData] = useState([])
-  const [filterData, setFilterData] = useState([])
+  const [data, setData] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedResult, setSelectedResult] = useState('');
+  const [searchFilter, setSearchFilter] = useState('');
+  const [searchVisible, setSearchVisible] = useState(true);
 
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=6e09b99946874e6fbbc5b4b9aea77c73`)
-      .then(res => res.json())
-      .then(data => {
-        setFilterData(data.articles);
-      })
-  })
+    fetch('https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=bf3aaadad8bb4a659eeabcf555c66ac0')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data.articles);
+        setSearchResults(data.articles);
+      });
+  }, []);
 
-  const handleFilter = value => {
-    const res = filterData.filter(f => f.title.includes(value))
-    setData(res)
-  }
+  const handleFilter = (value) => {
+    setSearchFilter(value);
+    const res = data.filter((article) =>
+      article.title.toLowerCase().includes(value.toLowerCase())
+    );
+    setSearchResults(res);
+  };
+
+  const handleSearch = () => {
+    setSearchResults(data);
+  };
+
+  const handleResultClick = (result) => {
+    setSelectedResult(result.title);
+    setSearchFilter('')
+    setSearchResults([result])
+    setSearchVisible(false)
+  };
 
   return (
-    // <form onSubmit={(e) => e.preventDefault()}>
     <div className="search-top">
       <div className="searchwrapper">
         <FaSearch />
         <input
           type="text"
           placeholder="Type to search..."
-          onChange={e => handleFilter(e.target.value)}
+          value={searchFilter}
+          onChange={(e) => handleFilter(e.target.value)}
         />
+        <button onClick={handleSearch}>Search</button>
       </div>
-      <div>
-        {data.map((d, index) => (
-          <div key={index} className="search-result">
-            {d.title}
-          </div>
-        ))}
-      </div>
+      {searchVisible && (
+        <div>
+          {searchResults.map((d, index) => (
+            <div
+              key={index}
+              className="search-result"
+              onClick={() => handleResultClick(d)}
+            >
+              {d.title}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Search
+export default Search;
