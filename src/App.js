@@ -6,6 +6,7 @@ import Search from './components/Search'
 import NewsGrid from "./components/NewsGrid"
 import Logo from "./image/logo.png"
 import Bookmark from "./image/bookmark.png"
+import Sun from "./image/sun.png"
 import Moon from "./image/moon.png"
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [active, setActive] = useState(1)
   const [category, setCategory] = useState("general")
   const [open, setOpen] = useState(false)
+  const [theme, setTheme] = useState("light")
 
 
   useEffect(() => {
@@ -28,10 +30,22 @@ function App() {
       .then(data => setTechCrunchNews(data.articles))
   }, [country, category])
 
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
   return (
     <div className="App">
-      <div className="flex overflow-hidden bg-sky-950/80">
-        <div className={`${open ? "w-72" : "w-28"} duration-300 ml-5 h-screen rounded- p-5 pt-12 bg-white/50 relative`}>
+      <div className="flex overflow-hidden bg-white dark:bg-sky-950 dark:text-white">
+        <div className={`${open ? "w-72" : "w-28"} duration-300 ml-5 h-screen rounded-3xl p-5 pt-12 bg-sky-900/90 dark:bg-gray-400/80 relative `}>
           < UilAngleRight
             className={`absolute cursor-pointer rounded-full -right-5 top-20 w-7 border-4 border-sky-950 p-2 bg-gray-200 ${!open && "rotate-180"}`}
             onClick={() => setOpen(!open)}
@@ -58,8 +72,9 @@ function App() {
           </div>
           <div className="flex gap-x-4 items-center pt-8 pl-4">
             <img
-              src={Moon}
+              src={`${theme === "dark" ? Sun : Moon}`}
               className={`cursor-pointer duration-500 h-9 w-9`}
+              onClick={handleThemeSwitch}
               alt=" " />
           </div>
         </div>
