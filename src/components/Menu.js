@@ -1,4 +1,5 @@
 function Menu({ active, setActive, setCategory }) {
+
   const links = [
     { id: 1, name: "General", value: "general" },
     { id: 2, name: "Business", value: "business" },
