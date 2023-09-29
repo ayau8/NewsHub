@@ -17,7 +17,7 @@ function NewsItem({ item }) {
             <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=20`} alt={item.source.id} /> <span>{item.source.name}</span>
           </div>
           <div className="article-title">
-            <h2>{item.title}</h2>
+            <h3>{item.title}</h3>
           </div>
           <p className="article-description">
             {item.description}

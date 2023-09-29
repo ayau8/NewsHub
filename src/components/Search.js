@@ -7,7 +7,7 @@ function Search() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedResult, setSelectedResult] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
-  const [searchVisible, setSearchVisible] = useState(true);
+  const [searchVisible, setSearchVisible] = useState(false);
 
   useEffect(() => {
     fetch('https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=bf3aaadad8bb4a659eeabcf555c66ac0')
