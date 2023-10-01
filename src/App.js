@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react'
 import Menu from './components/Menu'
 import NewsGrid from "./components/NewsGrid"
 import SideBar from './components/SideBar'
+import Pagination from './components/Pagination'
 
 function App() {
   const [items, setItems] = useState([])
   const [active, setActive] = useState(1)
   const [country, setCountry] = useState("us")
   const [category, setCategory] = useState("general")
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(6)
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = items.slice(firstPostIndex, lastPostIndex)
 
   useEffect(() => {
     fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=6e09b99946874e6fbbc5b4b9aea77c73`)
@@ -27,7 +34,8 @@ function App() {
             setActive={setActive}
             setCategory={setCategory} />
           <h1 className="subtitle">Global News</h1>
-          <NewsGrid items={items} />
+          <Pagination totalPosts={items.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
+          <NewsGrid items={currentPosts} />
         </div>
       </div>
     </div>
