@@ -22,7 +22,7 @@ function TechCrunch() {
 
   return (
     <div className="App">
-      <div className="flex overflow-hidden bg-white dark:bg-sky-950 dark:text-white">
+      <div className="flex overflow-hidden items-center bg-white dark:bg-sky-950 dark:text-white">
         <SideBar
           country={country}
           setCountry={setCountry} />
