@@ -39,7 +39,8 @@ function SideBar({ country, setCountry }) {
   }
 
   return (
-    <div className={`${open ? "w-72" : "w-28"} duration-300 ml-5 h-screen rounded-3xl p-5 pt-12 bg-sky-900/90 dark:bg-gray-400/80 relative `}>
+    <div className={`${open ? "w-72" : "w-28"} duration-300 h-max ml-10 rounded-3xl p-5 pt-12 bg-sky-900/90 dark:bg-gray-400/80 relative`
+    }>
       < UilAngleRight
         className={`absolute cursor-pointer rounded-full -right-5 top-20 w-7 border-4 border-sky-950 p-2 bg-gray-200 ${!open && "rotate-180"}`}
         onClick={() => setOpen(!open)}
@@ -75,7 +76,7 @@ function SideBar({ country, setCountry }) {
           </ul>
         </nav >
       </div>
-      <div className="flex gap-x-4 items-center pt-64">
+      <div className="flex gap-x-4 items-center mt-28">
         <ul>
           <li
             className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200 mt-4`}>
@@ -92,7 +93,7 @@ function SideBar({ country, setCountry }) {
         </ul>
       </div>
 
-      <div className="flex gap-x-4 items-center pt-64 pl-2">
+      <div className="flex gap-x-4 items-center mt-28 pl-2">
         <Link to="/bookmark">
           <div className="flex items-center hover:bg-sky-200 ">
             <img
@@ -104,7 +105,7 @@ function SideBar({ country, setCountry }) {
         </Link>
       </div>
 
-      <div className="flex gap-x-4 items-center pt-8 pl-4">
+      <div className="flex gap-x-4 items-center my-8 pl-4">
         <img
           src={`${theme === "dark" ? Sun : Moon}`}
           className={`cursor-pointer duration-500 h-9 w-9 hover:scale-125`}
@@ -112,7 +113,7 @@ function SideBar({ country, setCountry }) {
           alt=" " />
         <span className={`${!open && "hidden"} text-slate-500 pl-6 flex text-xl`}>Mode</span>
       </div>
-    </div>
+    </div >
   )
 }
 
