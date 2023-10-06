@@ -3,6 +3,7 @@ import Menu from './components/Menu'
 import NewsGrid from "./components/NewsGrid"
 import SideBar from './components/SideBar'
 import Pagination from './components/Pagination'
+import { Typewriter } from 'react-simple-typewriter'
 
 function App() {
   const [items, setItems] = useState([])
@@ -34,7 +35,15 @@ function App() {
               active={active}
               setActive={setActive}
               setCategory={setCategory} />
-            <h1 className="subtitle">Global News</h1>
+            <h1 className="subtitle">
+              <Typewriter
+                words={['Global News']}
+                loop={5}
+                cursor
+                typeSpeed={170}
+                deleteSpeed={150}
+              />
+            </h1>
             <Pagination totalPosts={items.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
           </div>
           <NewsGrid items={currentPosts} />
