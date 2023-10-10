@@ -13,6 +13,7 @@ function NewsItem({ item, id, addBookmark }) {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const toggleBookmark = () => {
+
     if (isBookmarked === false) {
       setIsBookmarked(!isBookmarked);
       addBookmark({ title: item.title, description: item.description, url: item.url })

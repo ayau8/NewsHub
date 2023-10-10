@@ -12,6 +12,13 @@ function NewsGrid({ items }) {
     localStorage.setItem("Bookmarks", bookmark_serialized);
   };
 
+  // const removeBookmark = article => {
+  //   const temp = { ...bookmarkedArticles };
+  //   delete temp(article)
+  //   return temp;
+
+  // }
+
   return (
     <div className="news-grid relative">
       {items.map((item, index) => (
