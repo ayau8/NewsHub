@@ -147,7 +147,7 @@ body {
   transition: 0.3s;
 }
 
-.menu .inactive {
+/* .menu .inactive {
   background: #eee;
 }
 
@@ -162,7 +162,7 @@ body {
 
 .menu .inactive:hover {
   background: #dddddd;
-}
+} */
 
 .news-grid {
   display: grid;

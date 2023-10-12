@@ -13,6 +13,8 @@ function Bookmark() {
   // const currentPosts = techCrunchNews.slice(firstPostIndex, lastPostIndex
   let bookmark_deserialized = JSON.parse(localStorage.getItem("Bookmarks"));
 
+  console.log(bookmark_deserialized)
+
   return (
     <div className="App">
       <div className="flex overflow-hidden items-center bg-white dark:bg-sky-950 dark:text-white">
