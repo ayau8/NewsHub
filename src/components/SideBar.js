@@ -39,7 +39,7 @@ function SideBar({ country, setCountry }) {
   }
 
   return (
-    <div className={`${open ? "w-72" : "w-28"} duration-300 h-max ml-10 rounded-3xl p-5 pt-12 bg-sky-900/90 dark:bg-gray-400/80 relative`
+    <div className={`${open ? "w-72" : "w-28"} duration-300 h-max ml-10 rounded-3xl p-5 pt-12 bg-sky-900/90 dark:bg-gray-400/80 relative hidden md:block lg:block`
     }>
       < UilAngleRight
         className={`absolute cursor-pointer rounded-full -right-5 top-20 w-7 border-4 border-sky-950 p-2 bg-gray-200 ${!open && "rotate-180"}`}

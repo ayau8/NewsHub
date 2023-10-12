@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BlackHeart from '../image/blackheart.png'
 import RedHeart from '../image/redheart.png'
+import { bookmarkedArticles } from './BookmarkData'
 
-function NewsItem({ item, id, addBookmark }) {
+function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles }) {
   const websiteUrl = item.url
   const website = websiteUrl.split('https://').pop().split('/')[0]
 
@@ -10,15 +11,27 @@ function NewsItem({ item, id, addBookmark }) {
   const formatDate = date.replace('T', ' ')
   const formatTime = formatDate.replace('Z', '')
 
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [clickBookmark, setClickBookmark] = useState(false)
+  const [alreadyBookmark, setAlreadyBookmark] = useState(false)
+
+  const isAlreadyBookmarked = bookmarkedArticles.some(bookmark => (
+    bookmark.title === item.title
+  ));
+
+  useEffect(() => {
+    setAlreadyBookmark(isAlreadyBookmarked);
+  }, [isAlreadyBookmarked]);
 
   const toggleBookmark = () => {
-    if (isBookmarked === false) {
-      setIsBookmarked(!isBookmarked);
-      addBookmark({ title: item.title, description: item.description, url: item.url })
+    if (!isAlreadyBookmarked) {
+      setClickBookmark(true);
+      setAlreadyBookmark(true);
+      addBookmark({ title: item.title, description: item.description, url: item.url });
     } else {
-      setIsBookmarked(!isBookmarked);
-    };
+      setClickBookmark(false);
+      setAlreadyBookmark(false);
+      removeBookmark({ title: item.title, description: item.description, url: item.url });
+    }
   };
 
   return (
@@ -46,7 +59,7 @@ function NewsItem({ item, id, addBookmark }) {
           </div>
           <div className="bookmark">
             <img
-              src={isBookmarked ? RedHeart : BlackHeart}
+              src={clickBookmark || alreadyBookmark ? RedHeart : BlackHeart}
               className="h-10 w-10 hover:scale-125 cursor-pointer duration-500"
               onClick={toggleBookmark}
               alt=" "
