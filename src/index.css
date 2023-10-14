@@ -189,6 +189,10 @@ body {
   flex-direction: column;
 }
 
+.article-title {
+  max-height: 130px;
+}
+
 .article:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
@@ -201,6 +205,8 @@ body {
   align-items: flex-start;
   gap: 1em;
   flex-grow: 1;
+  height: 130px;
+  overflow: hidden;
 }
 
 .article-source {
@@ -214,7 +220,7 @@ body {
   overflow: hidden;
   margin-bottom: 0.5em;
   position: relative;
-  height: 15em;
+  height: 20em;
 }
 
 .article-image img {

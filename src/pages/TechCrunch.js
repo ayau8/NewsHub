@@ -13,8 +13,10 @@ function TechCrunch() {
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = techCrunchNews.slice(firstPostIndex, lastPostIndex)
 
+  const MY_KEY = process.env.REACT_APP_API_KEY
+
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d886ff34004349b3ae4d9a6024c48407`)
+    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${MY_KEY}`)
       .then(res => res.json())
       .then(data => setTechCrunchNews(data.articles))
   }, [country])

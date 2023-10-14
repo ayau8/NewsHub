@@ -18,8 +18,10 @@ function App() {
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = items.slice(firstPostIndex, lastPostIndex)
 
+  const MY_KEY = process.env.REACT_APP_API_KEY
+
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=d886ff34004349b3ae4d9a6024c48407`)
+    fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=${category}&apiKey=${MY_KEY}`)
       .then(res => res.json())
       .then(data => setItems(data.articles))
   }, [country, category])
