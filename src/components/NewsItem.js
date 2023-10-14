@@ -36,11 +36,12 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
 
   return (
     <div className="article backdrop-blur-xl">
-      <a href={item.url} className="article backdrop-blur-xl">
-        <div className="article-image" >
+      <a href={item.url}
+        className="article backdrop-blur-xl">
+        <div className="article-image">
           <img src={item.urlToImage} alt={item.title} />
         </div>
-        <div className="article-title font-extrabold bg-gray-700/80 text-white rounded-md p-3 mt-2 text-xl">
+        <div className="article-title font-extrabold bg-gray-700/80 text-white rounded-md p-3 mt-2 text-xl max-h-88 overflow-auto">
           <h1>{item.title}</h1>
         </div>
       </a >

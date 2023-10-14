@@ -11,10 +11,11 @@ function AnySearch({ country, setCountry }) {
   const [endDate, setEndDate] = useState('2023-10-13')
   const [sortBy, setSortBy] = useState('publishedAt')
 
+  const MY_KEY = process.env.REACT_APP_API_KEY
 
   useEffect(() => {
     const searchTerm = searchInput || 'Apple'
-    fetch(`https://newsapi.org/v2/everything?language=en&pageSize=10&q=${searchTerm}&from=${startDate}&to=${endDate}&sortBy=${sortBy}&apiKey=d886ff34004349b3ae4d9a6024c48407`)
+    fetch(`https://newsapi.org/v2/everything?language=en&pageSize=10&q="${searchTerm}"&from=${startDate}&to=${endDate}&sortBy=${sortBy}&apiKey=${MY_KEY}`)
       .then(res => res.json())
       .then(data => {
         setSearchResult(data.articles)
