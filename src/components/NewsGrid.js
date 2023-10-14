@@ -35,20 +35,27 @@ function NewsGrid({ items }) {
 
   return (
     <div className="news-grid relative">
-      {items.map((item, index) => (
-        <motion.div
-          key={index}
-          variants={{
-            hidden: { opacity: 0, y: 100, rotate: 10 },
-            visible: { opacity: 1, y: 0, rotate: 0 },
-          }}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <NewsItem item={item} id={item.id} addBookmark={addBookmark} removeBookmark={removeBookmark} bookmarkedArticles={bookmarkedArticles} />
-        </motion.div>
-      ))}
+      {items
+        .filter(item => item.urlToImage)
+        .map((item, index) => (
+          <motion.div
+            key={index}
+            variants={{
+              hidden: { opacity: 0, y: 100, rotate: 10 },
+              visible: { opacity: 1, y: 0, rotate: 0 },
+            }}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <NewsItem
+              item={item}
+              id={item.id}
+              addBookmark={addBookmark}
+              removeBookmark={removeBookmark}
+              bookmarkedArticles={bookmarkedArticles} />
+          </motion.div>
+        ))}
     </div>
   )
 }

@@ -7,14 +7,14 @@ function TechCrunch() {
   const [country, setCountry] = useState("us")
   const [techCrunchNews, setTechCrunchNews] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(6)
+  const [postsPerPage] = useState(9)
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = techCrunchNews.slice(firstPostIndex, lastPostIndex)
 
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=6e09b99946874e6fbbc5b4b9aea77c73`)
+    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d886ff34004349b3ae4d9a6024c48407`)
       .then(res => res.json())
       .then(data => setTechCrunchNews(data.articles))
   }, [country])

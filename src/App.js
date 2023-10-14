@@ -4,6 +4,7 @@ import NewsGrid from "./components/NewsGrid"
 import SideBar from './components/SideBar'
 import Pagination from './components/Pagination'
 import { Typewriter } from 'react-simple-typewriter'
+import { current } from '@reduxjs/toolkit'
 
 function App() {
   const [items, setItems] = useState([])
@@ -18,7 +19,7 @@ function App() {
   const currentPosts = items.slice(firstPostIndex, lastPostIndex)
 
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=6e09b99946874e6fbbc5b4b9aea77c73`)
+    fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=d886ff34004349b3ae4d9a6024c48407`)
       .then(res => res.json())
       .then(data => setItems(data.articles))
   }, [country, category])
@@ -28,7 +29,10 @@ function App() {
       <div className="flex overflow-hidden items-center bg-white dark:bg-sky-950 dark:text-white">
         <SideBar
           country={country}
-          setCountry={setCountry} />
+          setCountry={setCountry}
+          currentPage={currentPage}
+          postsPerpPage={postsPerPage}
+          currentPosts={currentPosts} />
         <div className="flex-1 h-screen mt-9 overflow-y-auto">
           <div className='relative'>
             <Menu
@@ -37,8 +41,8 @@ function App() {
               setCategory={setCategory} />
             <h1 className="subtitle">
               <Typewriter
-                words={['Global News']}
-                loop={5}
+                words={['Top Headlines']}
+                loop={1}
                 cursor
                 typeSpeed={170}
                 deleteSpeed={150}

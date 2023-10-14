@@ -9,6 +9,7 @@ import {
 import reportWebVitals from './reportWebVitals';
 import TechCrunch from './pages/TechCrunch';
 import Bookmark from './pages/Bookmark'
+import AnySearch from './pages/AnySearch'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "bookmark",
     element: <Bookmark />,
+  },
+  {
+    path: "search",
+    element: <AnySearch />,
   },
 ]);
 
