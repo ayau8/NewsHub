@@ -7,6 +7,7 @@ import China from "../image/china.png"
 import Japan from "../image/japan.png"
 import Bookmark from "../image/bookmark.png"
 import TechCrunch from "../image/techcrunch.png"
+import Search from "../image/search.png"
 import Sun from "../image/sun.png"
 import Moon from "../image/moon.png"
 
@@ -87,6 +88,23 @@ function SideBar({ country, setCountry }) {
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
                   alt=" " />
                 <span className={`${!open && "hidden"} text-slate-500 pl-6 flex text-xl`}>TechCrunch</span>
+              </div>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className="flex gap-x-4 items-center mt-28">
+        <ul>
+          <li
+            className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200 mt-4`}>
+            <Link to="/search">
+              <div className="flex items-center">
+                <img
+                  src={Search}
+                  className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125 fill-white`}
+                  alt=" " />
+                <span className={`${!open && "hidden"} text-slate-500 pl-6 flex text-xl`}>Search</span>
               </div>
             </Link>
           </li>
