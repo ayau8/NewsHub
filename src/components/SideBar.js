@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { UilAngleRight } from '@iconscout/react-unicons'
 import { Link } from 'react-router-dom';
 import Logo from "../image/logo.png"
-import USA from "../image/usa.png"
-import China from "../image/china.png"
-import Japan from "../image/japan.png"
 import Bookmark from "../image/bookmark.png"
 import TechCrunch from "../image/techcrunch.png"
 import Search from "../image/search.png"
@@ -12,20 +9,8 @@ import Sun from "../image/sun.png"
 import Moon from "../image/moon.png"
 
 function SideBar({ country, setCountry }) {
-  const [activeCountry, setActiveCountry] = useState(1)
   const [open, setOpen] = useState(false)
   const [theme, setTheme] = useState("light")
-
-  const countries = [
-    { id: 1, name: "USA", value: "us", src: USA },
-    { id: 2, name: "China", value: "cn", src: China },
-    { id: 3, name: "Japan", value: "jp", src: Japan },
-  ]
-
-  function onClick(id, value) {
-    setActiveCountry(id)
-    setCountry(value)
-  }
 
   useEffect(() => {
     if (theme === "dark") {
@@ -40,12 +25,11 @@ function SideBar({ country, setCountry }) {
   }
 
   return (
-    <div className={`${open ? "w-72" : "w-28"} duration-300 h-max ml-10 rounded-3xl p-5 pt-12 bg-sky-900/90 dark:bg-gray-400/80 relative hidden md:block lg:block`
-    }>
-      < UilAngleRight
+    <div className="flex justify-between bg-gray-700 dark:bg-sky-50 h-28 w-11/12 mt-10 mx-auto relative rounded-lg p-8">
+      {/* < UilAngleRight
         className={`absolute cursor-pointer rounded-full -right-5 top-20 w-7 border-4 border-sky-950 p-2 bg-gray-200 ${!open && "rotate-180"}`}
         onClick={() => setOpen(!open)}
-        style={{ color: "#362f9d", width: '40px', height: '40px' }} />
+        style={{ color: "#362f9d", width: '40px', height: '40px' }} /> */}
       <div className="flex gap-x-4 items-center">
         <Link to="/">
           <div className="flex items-center">
@@ -53,83 +37,64 @@ function SideBar({ country, setCountry }) {
               src={Logo}
               className={`cursor-pointer duration-500 h-16 w-16`}
               alt=" " />
-            <h1 className={`text-white origin-left font-bold text-3xl pl-4 duration-300 ${!open && "scale-0"}`}>NewsHub</h1>
+            <h1 className={`text-white origin-left font-bold text-3xl pl-4 dark:text-black`}>NewsHub</h1>
           </div>
         </Link>
       </div>
 
-      <div className="mt-20">
-        <nav className="country">
-          <ul>
-            {countries.map(country => (
-              <li
-                key={country.id}
-                className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200 mt-4`}
-                onClick={() => onClick(country.id, country.value)}
-              >
-                <img
-                  src={country.src}
-                  className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
-                  alt=" " />
-                <span className={`${!open && "hidden"} text-slate-500 text-xl`}>{country.name}</span>
-              </li>
-            ))}
-          </ul>
-        </nav >
-      </div>
-      <div className="flex gap-x-4 items-center mt-28">
+      <div className="flex items-center">
         <ul>
           <li
-            className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200 mt-4`}>
+            className={`text-gray-300 text-middle flex items-center cursor-pointer p-2 rounded-md hover:bg-sky-200`}>
             <Link to="/techcrunch">
               <div className="flex items-center">
                 <img
                   src={TechCrunch}
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
                   alt=" " />
-                <span className={`${!open && "hidden"} text-slate-500 pl-6 flex text-xl`}>TechCrunch</span>
+                <span className={`text-gray-300 pl-4 mt-1 flex text-xl`}>TechCrunch</span>
               </div>
             </Link>
           </li>
         </ul>
       </div>
 
-      <div className="flex gap-x-4 items-center mt-28">
+      <div className="flex items-center">
         <ul>
           <li
-            className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200 mt-4`}>
+            className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200`}>
             <Link to="/search">
               <div className="flex items-center">
                 <img
                   src={Search}
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125 fill-white`}
                   alt=" " />
-                <span className={`${!open && "hidden"} text-slate-500 pl-6 flex text-xl`}>Search</span>
+                <span className={`text-gray-300 pl-4 mt-1 flex text-xl`}>Search</span>
               </div>
             </Link>
           </li>
         </ul>
       </div>
 
-      <div className="flex gap-x-4 items-center mt-28 pl-2">
+      <div className="flex items-center">
         <Link to="/bookmark">
-          <div className="flex items-center hover:bg-sky-200 ">
+          <div className="text-gray-300 text-middle flex items-center cursor-pointer rounded-md hover:bg-sky-200">
             <img
               src={Bookmark}
               className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
               alt=" " />
-            <span className={`${!open && "hidden"} text-slate-500 pl-6 flex text-xl`}>Bookmark</span>
+            <span className={`text-gray-300 pl-4 mt-1 flex text-xl`}>Bookmark</span>
           </div>
         </Link>
       </div>
 
-      <div className="flex gap-x-4 items-center my-8 pl-4">
+      <div className="flex items-center">
         <img
           src={`${theme === "dark" ? Sun : Moon}`}
           className={`cursor-pointer duration-500 h-9 w-9 hover:scale-125`}
           onClick={handleThemeSwitch}
           alt=" " />
-        <span className={`${!open && "hidden"} text-slate-500 pl-6 flex text-xl`}>Mode</span>
+        {/* <span className={` text-slate-500 pl-6 flex text-xl`}>Mode</span> */}
       </div>
     </div >
   )

@@ -25,18 +25,18 @@ function Menu({ active, setActive, setCategory }) {
 
   return (
     <nav className="menu">
-      <ul className="text-centre grid grid-cols-4">
+      <ul className="text-centre">
         {links.map(link => (
           <li
             key={link.id}
-            className={`${active === link.id ? "active" : "inactive"} text-center hover:bg-sky-300`}
+            className={`${active === link.id ? "active" : "inactive"} text-center dark:text-white`}
             onClick={() => onClick(link.id, link.value)}
           >
-            <span className="hidden md:inline ">{link.name}</span>
-            <img
+            <span>{link.name}</span>
+            {/* <img
               src={link.icon}
               className="md:hidden opacity-80 duration-300 cursor-pointer"
-              alt=" " />
+              alt=" " /> */}
           </li>
         ))}
       </ul>

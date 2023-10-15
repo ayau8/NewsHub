@@ -14,28 +14,28 @@ function Bookmark() {
   let bookmark_deserialized = JSON.parse(localStorage.getItem("Bookmarks"));
 
   return (
-    <div className="App">
-      <div className="flex overflow-hidden items-center bg-white dark:bg-sky-950 dark:text-white">
+    <div className="App mx-auto">
+      <div className="items-cente dark:text-white">
         <SideBar
           country={country}
           setCountry={setCountry} />
-        <div className="flex-1 h-screen mt-9 overflow-y-auto">
-          <h1 className="subtitle">Bookmarks</h1>
+        <div className="h-screen mt-9 w-11/12 mx-auto">
+          <h1 className="font-extrabold mt-16 ml-3 text-5xl">Bookmarks</h1>
           {/* <Pagination totalPosts={techCrunchNews.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} /> */}
           {/* <NewsGrid items={currentPosts} /> */}
           <div>
-
-            <ul className="grid grid-cols-3 gap-8 h-1/6 m-20">
+            <ul className="grid grid-cols-3 gap-8 mt-10">
               {bookmark_deserialized
                 .filter(article => article !== null)
                 .reverse()
                 .map((article) => (
                   <li key={article.id}>
-                    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                      <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{article.title}</h5>
-                      </a>
-                      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{article.description}</p>
+                    <div class="max-w-sm dark:bg-gray-800 dark:border-gray-700">
+                      <div className="article-image">
+                        <img src={article.image} alt={article.title} />
+                      </div>
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{article.title}</h5>
+                      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 overflow-auto">{article.description}</p>
                       <a href={article.url} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         For details
                         <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

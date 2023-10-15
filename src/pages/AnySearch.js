@@ -41,15 +41,15 @@ function AnySearch({ country, setCountry }) {
   }
 
   return (
-    <div className="App">
-      <div className="flex overflow-hidden items-center bg-white dark:bg-sky-950 dark:text-white">
+    <div className="App mx-auto">
+      <div className="items-center dark:bg-sky-950 dark:text-white">
         <SideBar
           country={country}
           setCountry={setCountry} />
-        <div className="flex-1 h-screen mt-9 overflow-y-auto">
-          <h1 className="subtitle">Search</h1>
+        <div className="h-screen mt-9 w-11/12 mx-auto">
+          <h1 className="font-extrabold mt-16 ml-3 text-5xl">Search</h1>
 
-          <div className="bg-sky-700 w-5/6 rounded-3xl mx-auto">
+          <div className="bg-gray-700/95 my-10 rounded-3xl mx-auto">
             <div className="p-5 text-lg text-center">
               <input
                 type="text"
@@ -86,7 +86,8 @@ function AnySearch({ country, setCountry }) {
               <button
                 type="submit"
                 className="border bg-yellow-400 hover:bg-sky-300 duration-300 text-black font-bold p-3 rounded-xl text-mg"
-                onClick={e => handleFilter(e.target.value)}>
+              // onClick={e => handleFilter(e.target.value)}
+              >
                 Submit
               </button>
 

@@ -23,13 +23,13 @@ function TechCrunch() {
 
 
   return (
-    <div className="App">
-      <div className="flex overflow-hidden items-center bg-white dark:bg-sky-950 dark:text-white">
+    <div className="App mx-auto">
+      <div className="items-center dark:bg-sky-950 dark:text-white">
         <SideBar
           country={country}
           setCountry={setCountry} />
-        <div className="flex-1 h-screen mt-9 overflow-y-auto">
-          <h1 className="subtitle">TechCrunch News</h1>
+        <div className="h-screen mt-9 w-11/12 mx-auto">
+        <h1 className="font-extrabold mt-16 ml-3 text-5xl">TechCrunch News</h1>
           <Pagination totalPosts={techCrunchNews.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
           <NewsGrid items={currentPosts} />
         </div>
