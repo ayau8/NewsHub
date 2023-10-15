@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Country from './components/Country'
 import Menu from './components/Menu'
 import NewsGrid from "./components/NewsGrid"
 import SideBar from './components/SideBar'
@@ -27,35 +28,46 @@ function App() {
   }, [country, category])
 
   return (
-    <div className="App">
-      <div className="flex overflow-hidden items-center bg-white dark:bg-sky-950 dark:text-white">
+    <div className="App mx-auto">
+      <div className="items-center dark:bg-sky-950 dark:text-white">
         <SideBar
-          country={country}
-          setCountry={setCountry}
           currentPage={currentPage}
           postsPerpPage={postsPerPage}
           currentPosts={currentPosts} />
-        <div className="flex-1 h-screen mt-9 overflow-y-auto">
+        <div className="h-screen mt-9 w-11/12 mx-auto">
           <div className='relative'>
+            <div className="flex justify-between items-start">
+              <h1 className="font-extrabold mt-12 ml-3 text-5xl">
+                {/* <Typewriter
+                words={['Top Headlines']}
+                loop={1}
+              cursor
+                typeSpeed={170}
+                deleteSpeed={150} */}
+                Top Headlines
+              </h1>
+              <Country
+                country={country}
+                setCountry={setCountry} />
+            </div>
             <Menu
               active={active}
               setActive={setActive}
               setCategory={setCategory} />
-            <h1 className="subtitle">
-              <Typewriter
-                words={['Top Headlines']}
-                loop={1}
-                cursor
-                typeSpeed={170}
-                deleteSpeed={150}
-              />
-            </h1>
-            <Pagination totalPosts={items.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
+            {/* <p className="text-center my-5">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</p> */}
+            {/* <div className="flex justify-between w-7/12 mx-auto items-center"> */}
+            <Pagination
+              totalPosts={items.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+            />
+            {/* </div> */}
           </div>
           <NewsGrid items={currentPosts} />
         </div>
       </div>
     </div >
+
   );
 }
 

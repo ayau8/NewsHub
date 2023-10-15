@@ -11,6 +11,10 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
   const formatDate = date.replace('T', ' ')
   const formatTime = formatDate.replace('Z', '')
 
+  const title = item.title
+  const formatTitle = title.split(" - ")
+  const updated_title = formatTitle[0]
+
   const [clickBookmark, setClickBookmark] = useState(false)
   const [alreadyBookmark, setAlreadyBookmark] = useState(false)
 
@@ -26,34 +30,34 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
     if (!isAlreadyBookmarked) {
       setClickBookmark(true);
       setAlreadyBookmark(true);
-      addBookmark({ title: item.title, description: item.description, url: item.url });
+      addBookmark({ image: item.urlToImage, title: item.title, description: item.description, url: item.url });
     } else {
       setClickBookmark(false);
       setAlreadyBookmark(false);
-      removeBookmark({ title: item.title, description: item.description, url: item.url });
+      removeBookmark({ image: item.urlToImage, title: item.title, description: item.description, url: item.url });
     }
   };
 
   return (
-    <div className="article backdrop-blur-xl">
+    <div className="article backdrop-blur-xl h-full bg-orange-50/90">
       <a href={item.url}
         className="article backdrop-blur-xl">
         <div className="article-image">
           <img src={item.urlToImage} alt={item.title} />
         </div>
-        <div className="article-title font-extrabold bg-gray-700/80 text-white rounded-md p-3 mt-2 text-xl max-h-88 overflow-auto">
-          <h1>{item.title}</h1>
+        <div className="article-title rounded-br-2xl font-extrabold bg-gray-700 text-white p-3 mt-2 text-xl">
+          <h1>{updated_title}</h1>
         </div>
       </a >
       <div className="article-content">
-        <p className="article-description">
+        <p className="article-description dark:text-white">
           {item.description}
         </p>
-        <div className="article-details">
+        {/* <div className="article-details ">
           <small><b>Published At: </b>{formatTime}</small>
-        </div>
+        </div> */}
       </div>
-      <div className="flex justify-between px-3">
+      <div className="flex justify-between px-3 bg-gray-200/70 border mt-3 py-2 dark:bg-white">
         <div className="article-source">
           <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=20`} alt={item.source.id} /> <span>{item.source.name}</span>
         </div>
