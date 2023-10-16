@@ -59,7 +59,7 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
       </div>
       <div className="flex justify-between px-3 bg-gray-200/70 border mt-3 py-2 dark:bg-white">
         <div className="article-source">
-          {/* <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=20`} alt={item.source.id} /> <span>{item.source.name}</span> */}
+          <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=20`} alt={item.source.id} /> <span>{item.source.name}</span>
         </div>
         <div className="bookmark">
           <img
