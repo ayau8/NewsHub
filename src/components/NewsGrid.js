@@ -41,7 +41,7 @@ function NewsGrid({ items }) {
           <motion.div
             key={index}
             variants={{
-              hidden: { opacity: 0, y: 100, rotate: 10 },
+              hidden: { opacity: 0, y: 100, rotate: 0 },
               visible: { opacity: 1, y: 0, rotate: 0 },
             }}
             initial="hidden"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import USA from "../image/usa.png"
 import China from "../image/china.png"
+import UK from "../image/UK.png"
 import Japan from "../image/japan.png"
 
 function Country({ country, setCountry }) {
@@ -20,19 +21,19 @@ function Country({ country, setCountry }) {
   return (
     <div>
       <nav className="country">
-        <ul className="m-5 flex">
+        <ul className="m-5 flex ">
           {countries.map(country => (
             <li
               key={country.id}
-              className={`text-gray-300 cursor-pointer rounded-md hover:bg-sky-200 mt-5 `}
+              className={`text-gray-300 cursor-pointer rounded-md hover:bg-sky-200 mt-5`}
               onClick={() => onClick(country.id, country.value)}
             >
-              <div className="flex-col mr-12 text-center">
+              <div className="flex mr-12 text-center justify-center items-center">
                 <img
                   src={country.src}
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
                   alt=" " />
-                <span className={` text-slate-500 text-xl`}>{country.name}</span>
+                <span className={` text-slate-500 text-xl ml-4`}>{country.name}</span>
               </div>
             </li>
           ))}

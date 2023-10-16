@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NewsGrid from "../components/NewsGrid"
 import SideBar from '../components/SideBar'
+import Footer from "../components/Footer"
 import Pagination from '../components/Pagination'
 
 function TechCrunch() {
@@ -24,16 +25,17 @@ function TechCrunch() {
 
   return (
     <div className="App mx-auto">
-      <div className="items-center dark:bg-sky-950 dark:text-white">
+      <div className="items-center dark:bg-sky-950">
         <SideBar
           country={country}
           setCountry={setCountry} />
-        <div className="h-screen mt-9 w-11/12 mx-auto">
-        <h1 className="font-extrabold mt-16 ml-3 text-5xl">TechCrunch News</h1>
+        <div className="mt-9 w-11/12 mx-auto">
+          <h1 className="font-extrabold mt-16 ml-3 text-5xl dark:text-white">TechCrunch News</h1>
           <Pagination totalPosts={techCrunchNews.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
           <NewsGrid items={currentPosts} />
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

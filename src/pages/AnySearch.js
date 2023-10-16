@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SideBar from '../components/SideBar'
 import NewsGrid from '../components/NewsGrid'
+import Footer from '../components/Footer'
 
 function AnySearch({ country, setCountry }) {
   const [searchResult, setSearchResult] = useState([])
@@ -46,7 +47,7 @@ function AnySearch({ country, setCountry }) {
         <SideBar
           country={country}
           setCountry={setCountry} />
-        <div className="h-screen mt-9 w-11/12 mx-auto">
+        <div className="mt-9 w-11/12 mx-auto">
           <h1 className="font-extrabold mt-16 ml-3 text-5xl">Search</h1>
 
           <div className="bg-gray-700/95 my-10 rounded-3xl mx-auto">
@@ -113,6 +114,7 @@ function AnySearch({ country, setCountry }) {
           {/* <NewsGrid items={currentPosts} /> */}
         </div>
       </div>
+      <Footer />
     </div >
   )
 }
