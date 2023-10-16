@@ -40,10 +40,10 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
 
   return (
     <div className="article backdrop-blur-xl h-full bg-orange-50/90">
-      <a href={item.url}
+      <a href={item.source["url"]}
         className="article backdrop-blur-xl">
         <div className="article-image">
-          <img src={item.urlToImage} alt={item.title} />
+          <img src={item.image} alt={item.title} />
         </div>
         <div className="article-title rounded-br-2xl font-extrabold bg-gray-700 text-white p-3 mt-2 text-xl">
           <h1>{updated_title}</h1>
@@ -51,7 +51,7 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
       </a >
       <div className="article-content">
         <p className="article-description dark:text-white">
-          {item.description}
+          {item.content}
         </p>
         {/* <div className="article-details ">
           <small><b>Published At: </b>{formatTime}</small>
@@ -59,7 +59,7 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
       </div>
       <div className="flex justify-between px-3 bg-gray-200/70 border mt-3 py-2 dark:bg-white">
         <div className="article-source">
-          {/* <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=20`} alt={item.source.id} /> <span>{item.source.name}</span> */}
+          <img src={`https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,CURL&url=http://${website}&size=20`} alt={item.source.id} /> <span>{item.source.name}</span>
         </div>
         <div className="bookmark">
           <img

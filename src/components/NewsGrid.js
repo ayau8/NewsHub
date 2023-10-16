@@ -36,7 +36,7 @@ function NewsGrid({ items }) {
   return (
     <div className="news-grid relative">
       {items
-        .filter(item => item.urlToImage)
+        .filter(item => item.image)
         .map((item, index) => (
           <motion.div
             key={index}
