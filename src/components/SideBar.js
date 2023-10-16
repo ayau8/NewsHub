@@ -52,7 +52,7 @@ function SideBar({ country, setCountry }) {
                   src={TechCrunch}
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
                   alt=" " />
-                <span className={`text-gray-300 pl-4 mt-1 flex text-xl`}>TechCrunch</span>
+                <span className={`text-gray-300 pl-4 mt-1 flex text-xl dark:text-black`}>TechCrunch</span>
               </div>
             </Link>
           </li>
@@ -69,7 +69,7 @@ function SideBar({ country, setCountry }) {
                   src={Search}
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125 fill-white`}
                   alt=" " />
-                <span className={`text-gray-300 pl-4 mt-1 flex text-xl`}>Search</span>
+                <span className={`text-gray-300 pl-4 mt-1 flex text-xl dark:text-black`}>Search</span>
               </div>
             </Link>
           </li>
@@ -83,7 +83,7 @@ function SideBar({ country, setCountry }) {
               src={Bookmark}
               className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
               alt=" " />
-            <span className={`text-gray-300 pl-4 mt-1 flex text-xl`}>Bookmark</span>
+            <span className={`text-gray-300 pl-4 mt-1 flex text-xl dark:text-black`}>Bookmark</span>
           </div>
         </Link>
       </div>

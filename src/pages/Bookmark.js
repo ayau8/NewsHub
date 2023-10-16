@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SideBar from '../components/SideBar'
+import Footer from "../components/Footer"
 import Pagination from '../components/Pagination'
 import NewsGrid from '../components/NewsGrid'
 
@@ -13,13 +14,14 @@ function Bookmark() {
   // const currentPosts = techCrunchNews.slice(firstPostIndex, lastPostIndex
   let bookmark_deserialized = JSON.parse(localStorage.getItem("Bookmarks"));
 
+
   return (
     <div className="App mx-auto">
       <div className="items-cente dark:text-white">
         <SideBar
           country={country}
           setCountry={setCountry} />
-        <div className="h-screen mt-9 w-11/12 mx-auto">
+        <div className="mt-9 w-11/12 mx-auto">
           <h1 className="font-extrabold mt-16 ml-3 text-5xl">Bookmarks</h1>
           {/* <Pagination totalPosts={techCrunchNews.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} /> */}
           {/* <NewsGrid items={currentPosts} /> */}
@@ -36,7 +38,7 @@ function Bookmark() {
                       </div>
                       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{article.title}</h5>
                       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 overflow-auto">{article.description}</p>
-                      <a href={article.url} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <a href={article.url} class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 dark:bg-sky-950 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                         For details
                         <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -49,6 +51,7 @@ function Bookmark() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

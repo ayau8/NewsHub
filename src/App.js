@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Country from './components/Country'
 import Menu from './components/Menu'
 import NewsGrid from "./components/NewsGrid"
+import Footer from "./components/Footer"
 import SideBar from './components/SideBar'
 import Pagination from './components/Pagination'
 import { Typewriter } from 'react-simple-typewriter'
@@ -34,10 +35,10 @@ function App() {
           currentPage={currentPage}
           postsPerpPage={postsPerPage}
           currentPosts={currentPosts} />
-        <div className="h-screen mt-9 w-11/12 mx-auto">
+        <div className=" mt-9 w-11/12 mx-auto">
           <div className='relative'>
             <div className="flex justify-between items-start">
-              <h1 className="font-extrabold mt-12 ml-3 text-5xl">
+              <h1 className="font-extrabold mt-8 ml-3 text-5xl">
                 {/* <Typewriter
                 words={['Top Headlines']}
                 loop={1}
@@ -66,6 +67,7 @@ function App() {
           <NewsGrid items={currentPosts} />
         </div>
       </div>
+      <Footer />
     </div >
 
   );
