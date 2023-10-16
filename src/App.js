@@ -14,16 +14,17 @@ function App() {
   const [country, setCountry] = useState("us")
   const [category, setCategory] = useState("general")
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(9)
+  const [postsPerPage] = useState(8)
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = items.slice(firstPostIndex, lastPostIndex)
 
-  const MY_KEY = process.env.REACT_APP_API_KEY
+  const TESTING_KEY = process.env.REACT_APP_TESTING_KEY
 
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=${category}&apiKey=${MY_KEY}`)
+    fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=10&apikey=${TESTING_KEY}`)
+      // fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=&apiKey=${MY_KEY}`)
       .then(res => res.json())
       .then(data => setItems(data.articles))
   }, [country, category])
