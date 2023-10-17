@@ -261,6 +261,61 @@ position: relative;
 
 @media screen and (max-width: 700px) {
   .news-grid {
+    display: grid;
     grid-template-columns: 1fr;
+    justify-content: space-around;
+    justify-items: center;
+    margin: 0 auto;
+    padding-top: 2em;
+  }
+
+  .article {
+    width: 23em;
+    padding-bottom: 0.5em;
+    transition: 0.3s;
+  }
+
+
+  .article-content {
+    height: 100px;
+    overflow: auto;
+  }
+
+  .menu {
+    margin-left: 10px;
+  }
+
+  .menu li {
+    margin: 0.4em;
+    font-size: 0.75em;
+    padding: 0.8em 1.3em;
+    background: #eee;
+    border-radius: 3em;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 1px solid gray;
+  }
+
+  .search,
+  .bookmark,
+  .mode {
+    display: none
+  }
+
+  .headlines {
+    font-size: 2.1em;
+  }
+
+  .country {
+    margin-left: 5px;
+  }
+
+  .country img {
+    height: 65%;
+    width: 65%;
+  }
+
+  .country-name {
+    font-size: 14px;
   }
 }

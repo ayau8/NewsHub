@@ -8,15 +8,16 @@ function AnySearch({ country, setCountry }) {
   const [searchInput, setSearchInput] = useState('')
   const [searchHide, setSearchHide] = useState(true)
   const [filterData, setFilterData] = useState([])
-  const [startDate, setStartDate] = useState('2023-10-13')
-  const [endDate, setEndDate] = useState('2023-10-13')
+  const [startDate, setStartDate] = useState(Date.now())
+  const [endDate, setEndDate] = useState(Date.now())
   const [sortBy, setSortBy] = useState('publishedAt')
 
-  const MY_KEY = process.env.REACT_APP_API_KEY
+  const TESTING_KEY = process.env.REACT_APP_TESTING_KEY
 
   useEffect(() => {
     const searchTerm = searchInput || 'Apple'
-    fetch(`https://newsapi.org/v2/everything?language=en&pageSize=10&q="${searchTerm}"&from=${startDate}&to=${endDate}&sortBy=${sortBy}&apiKey=${MY_KEY}`)
+    fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&lang=en&country=us&max=1&sortby=${sortBy}&from=${startDate}&to=${endDate}&apikey=${TESTING_KEY}`)
+      // fetch(`https://newsapi.org/v2/everything?language=en&pageSize=10&q="${searchTerm}"&from=${startDate}&to=${endDate}&sortBy=${sortBy}&apiKey=${MY_KEY}`)
       .then(res => res.json())
       .then(data => {
         setSearchResult(data.articles)
@@ -27,9 +28,9 @@ function AnySearch({ country, setCountry }) {
 
 
   const sortings = [
-    { id: 1, name: "PublishedAt", value: "publishedAt" },
-    { id: 2, name: "Relevancy", value: "relevancy" },
-    { id: 3, name: "Popularity", value: "popularity" },
+    { id: 1, name: "Relevance", value: "relevance" },
+    { id: 2, name: "Relevance", value: "relevance" },
+
   ]
 
   const handleFilter = value => {

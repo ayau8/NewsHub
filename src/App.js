@@ -23,7 +23,7 @@ function App() {
   const TESTING_KEY = process.env.REACT_APP_TESTING_KEY
 
   useEffect(() => {
-    fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=10&apikey=${TESTING_KEY}`)
+    fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=1&apikey=${TESTING_KEY}`)
       // fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=&apiKey=${MY_KEY}`)
       .then(res => res.json())
       .then(data => setItems(data.articles))
@@ -38,8 +38,8 @@ function App() {
           currentPosts={currentPosts} />
         <div className=" mt-9 w-11/12 mx-auto">
           <div className='relative'>
-            <div className="flex justify-between items-start">
-              <h1 className="font-extrabold mt-8 ml-3 text-5xl">
+            {/* <div className="flex justify-between items-start"> */}
+              <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines">
                 {/* <Typewriter
                 words={['Top Headlines']}
                 loop={1}
@@ -51,7 +51,6 @@ function App() {
               <Country
                 country={country}
                 setCountry={setCountry} />
-            </div>
             <Menu
               active={active}
               setActive={setActive}

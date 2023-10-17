@@ -11,13 +11,12 @@ function Menu({ active, setActive, setCategory }) {
   const links = [
     { id: 1, name: "General", value: "general", icon: AllApps },
     { id: 2, name: "World", value: "world", icon: Business },
-    { id: 3, name: "Nation", value: "nation", icon: Entertainment },
-    { id: 4, name: "Business", value: "business", icon: Health },
-    { id: 5, name: "Technology", value: "technology", icon: Science },
-    { id: 6, name: "Entertainment", value: "entertainment", icon: Sports },
-    { id: 7, name: "Science", value: "science", icon: Technology },
+    { id: 3, name: "Business", value: "business", icon: Health },
+    { id: 4, name: "Technology", value: "technology", icon: Science },
+    { id: 5, name: "Entertainment", value: "entertainment", icon: Sports },
+    { id: 6, name: "Science", value: "science", icon: Technology },
     { id: 7, name: "Sports", value: "sports", icon: Technology },
-    { id: 7, name: "Health", value: "health", icon: Technology },
+    { id: 8, name: "Health", value: "health", icon: Technology },
   ]
 
   function onClick(id, value) {
