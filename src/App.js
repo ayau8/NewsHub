@@ -39,18 +39,18 @@ function App() {
         <div className=" mt-9 w-11/12 mx-auto">
           <div className='relative'>
             {/* <div className="flex justify-between items-start"> */}
-              <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines">
-                {/* <Typewriter
+            <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines">
+              {/* <Typewriter
                 words={['Top Headlines']}
                 loop={1}
               cursor
                 typeSpeed={170}
                 deleteSpeed={150} */}
-                Top Headlines
-              </h1>
-              <Country
-                country={country}
-                setCountry={setCountry} />
+              Top Headlines
+            </h1>
+            <Country
+              country={country}
+              setCountry={setCountry} />
             <Menu
               active={active}
               setActive={setActive}
