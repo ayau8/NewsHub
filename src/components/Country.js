@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import USA from "../image/usa.png"
 import China from "../image/china.png"
+import Hong from "../image/hong.png"
 import UK from "../image/UK.png"
 import Japan from "../image/japan.png"
 
@@ -8,9 +9,10 @@ function Country({ country, setCountry }) {
   const [activeCountry, setActiveCountry] = useState(1)
 
   const countries = [
-    { id: 1, name: "USA", value: "us", src: USA },
-    { id: 2, name: "China", value: "cn", src: China },
-    { id: 3, name: "Japan", value: "jp", src: Japan },
+    { id: 1, name: "US", value: "us", src: USA },
+    { id: 2, name: "CN", value: "cn", src: China },
+    { id: 3, name: "HK", value: "hk", src: Hong },
+    { id: 4, name: "JP", value: "jp", src: Japan },
   ]
 
   function onClick(id, value) {
@@ -20,20 +22,20 @@ function Country({ country, setCountry }) {
 
   return (
     <div>
-      <nav className="country">
-        <ul className="m-5 flex ">
+      <nav className="country mt-10">
+        <ul className="flex justify-start ml-4">
           {countries.map(country => (
             <li
               key={country.id}
-              className={`text-gray-300 cursor-pointer rounded-md hover:bg-sky-200 mt-5`}
+              className={`text-gray-300 cursor-pointer`}
               onClick={() => onClick(country.id, country.value)}
             >
-              <div className="flex mr-12 text-center justify-center items-center">
+              <div className={`flex mr-8 text-center justify-center items-center rounded-md hover:bg-sky-200 country`}>
                 <img
                   src={country.src}
-                  className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
+                  className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125 ${activeCountry === country.id ? "grayscale-0" : "grayscale"}`}
                   alt=" " />
-                <span className={` text-slate-500 text-xl ml-4`}>{country.name}</span>
+                <span className={` text-slate-500 text-xl ml-4 country-name`}>{country.name}</span>
               </div>
             </li>
           ))}

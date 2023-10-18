@@ -42,7 +42,7 @@ function SideBar({ country, setCountry }) {
         </Link>
       </div>
 
-      <div className="flex items-center">
+      {/* <div className="flex items-center">
         <ul>
           <li
             className={`text-gray-300 text-middle flex items-center cursor-pointer p-2 rounded-md hover:bg-sky-200`}>
@@ -57,12 +57,12 @@ function SideBar({ country, setCountry }) {
             </Link>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="flex items-center">
         <ul>
           <li
-            className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200`}>
+            className={`text-gray-300 text-middle flex items-center gap-x-8 cursor-pointer p-2 rounded-md hover:bg-sky-200 search`}>
             <Link to="/search">
               <div className="flex items-center">
                 <img
@@ -78,7 +78,7 @@ function SideBar({ country, setCountry }) {
 
       <div className="flex items-center">
         <Link to="/bookmark">
-          <div className="text-gray-300 text-middle flex items-center cursor-pointer rounded-md hover:bg-sky-200">
+          <div className="text-gray-300 text-middle flex items-center cursor-pointer rounded-md hover:bg-sky-200 bookmark">
             <img
               src={Bookmark}
               className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
@@ -91,7 +91,7 @@ function SideBar({ country, setCountry }) {
       <div className="flex items-center">
         <img
           src={`${theme === "dark" ? Sun : Moon}`}
-          className={`cursor-pointer duration-500 h-9 w-9 hover:scale-125`}
+          className={`cursor-pointer duration-500 h-9 w-9 hover:scale-125 mode`}
           onClick={handleThemeSwitch}
           alt=" " />
         {/* <span className={` text-slate-500 pl-6 flex text-xl`}>Mode</span> */}

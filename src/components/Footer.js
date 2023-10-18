@@ -30,7 +30,7 @@ function Footer() {
                 src={Telephone}
                 className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
                 alt=" " />
-              <span className={`text-gray-300 pl-4 mt-1 flex text-xl dark:text-black`}>Contact Us</span>
+              <span className={`text-gray-300 pl-4 mt-1 flex text-xl dark:text-black contactus`}>Contact Us</span>
             </div>
           </li>
         </ul>
