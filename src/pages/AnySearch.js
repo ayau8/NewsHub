@@ -28,7 +28,7 @@ function AnySearch({ country, setCountry }) {
 
 
   const sortings = [
-    { id: 1, name: "Relevance", value: "relevance" },
+    { id: 1, name: "PublishedAt", value: "publishedAt" },
     { id: 2, name: "Relevance", value: "relevance" },
 
   ]
