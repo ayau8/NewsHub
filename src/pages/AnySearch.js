@@ -11,21 +11,35 @@ function AnySearch({ country, setCountry }) {
   const [startDate, setStartDate] = useState(Date.now())
   const [endDate, setEndDate] = useState(Date.now())
   const [sortBy, setSortBy] = useState('publishedAt')
+  const [searchInputFromSubmit, setSearchInputFromSubmit] = useState('')
 
   const TESTING_KEY = process.env.REACT_APP_TESTING_KEY
 
   useEffect(() => {
-    const searchTerm = searchInput || 'Apple'
-    fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&lang=en&country=us&max=1&sortby=${sortBy}&from=${startDate}&to=${endDate}&apikey=${TESTING_KEY}`)
-      // fetch(`https://newsapi.org/v2/everything?language=en&pageSize=10&q="${searchTerm}"&from=${startDate}&to=${endDate}&sortBy=${sortBy}&apiKey=${MY_KEY}`)
-      .then(res => res.json())
-      .then(data => {
-        setSearchResult(data.articles)
+    const searchTerm = searchInputFromSubmit || 'Apple'
+    async function fetchData() {
+      try {
+        const response = await fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&lang=en&country=us&max=1&sortby=${sortBy}&from=${startDate}&to=${endDate}&apikey=${TESTING_KEY}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setSearchResult(data.articles);
         setFilterData(data.articles)
-      })
-      .catch(err => console.log(err))
-  }, [searchInput, startDate, endDate, sortBy])
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData();
+  }, [searchInputFromSubmit, startDate, endDate, sortBy])
 
+  // fetch(`https://newsapi.org/v2/everything?language=en&pageSize=10&q="${searchTerm}"&from=${startDate}&to=${endDate}&sortBy=${sortBy}&apiKey=${MY_KEY}`)
+  // .then(res => res.json())
+  // .then(data => {
+  //   setSearchResult(data.articles)
+  //   setFilterData(data.articles)
+  // })
+  // .catch(err => console.log(err))
 
   const sortings = [
     { id: 1, name: "PublishedAt", value: "publishedAt" },
@@ -42,6 +56,10 @@ function AnySearch({ country, setCountry }) {
     }
   }
 
+  const handleSubmit = () => {
+    setSearchInputFromSubmit(searchInput)
+  }
+
   return (
     <div className="App mx-auto">
       <div className="items-center dark:bg-sky-950 dark:text-white">
@@ -51,28 +69,28 @@ function AnySearch({ country, setCountry }) {
         <div className="mt-9 w-11/12 mx-auto">
           <h1 className="font-extrabold mt-16 ml-3 text-5xl">Search</h1>
 
-          <div className="bg-gray-700/95 my-10 rounded-3xl mx-auto">
+          <div className="bg-gray-700/95 my-10 rounded-3xl mx-auto search-info">
             <div className="p-5 text-lg text-center">
               <input
                 type="text"
                 placeholder="Search keywords..."
-                className={`p-3 w-4/6 mt-4 border rounded-xl bg-sky-100`}
-                onChange={e => handleFilter(e.target.value)} />
+                className={`p-3 w-4/6 mt-4 border rounded-xl bg-sky-100 search-box`}
+                onChange={e => handleFilter(e.target.value)}
+                value={searchInput} />
             </div>
-            <div className="text-center h-24 mt-4">
-
+            <div className="text-center h-24 mt-4 search-categories">
               <input
                 type="date"
-                className={`p-3 mr-10 w-1/6 border rounded-xl text-ml dark: text-black`}
+                className={`p-3 mr-10 w-1/6 border rounded-xl text-ml dark: text-black startdate`}
                 onChange={e => setStartDate(e.target.value)} />
 
               <input
                 type="date"
-                className={`p-3 mr-10 w-1/6 border rounded-xl text-ml dark: text-black`}
+                className={`p-3 mr-10 w-1/6 border rounded-xl text-ml dark: text-black enddate`}
                 onChange={e => setEndDate(e.target.value)} />
 
               <select
-                className={`p-3 mr-10 w-1/6 border rounded-xl text-ml dark: text-black`}
+                className={`p-3 mr-10 w-1/6 border rounded-xl text-ml dark: text-black sorting`}
                 onChange={e => setSortBy(e.target.value)}
               >
                 {sortings.map((sorting, index) => (
@@ -87,11 +105,8 @@ function AnySearch({ country, setCountry }) {
 
               <button
                 type="submit"
-                className="border bg-yellow-400 hover:bg-sky-300 duration-300 text-black font-bold p-3 rounded-xl text-mg"
-              // onClick={e => handleFilter(e.target.value)}
-              >
-                Submit
-              </button>
+                className="border bg-yellow-400 hover:bg-sky-300 duration-300 text-black font-bold p-3 rounded-xl text-mg submit"
+                onClick={handleSubmit}>Submit</button>
 
 
               {/* <div className={`${searchHide ? 'invisible' : 'visible'} search-result bg-sky-200 p-3 mr-10 w-3/6 border rounded-xl`}>

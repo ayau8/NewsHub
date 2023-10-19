@@ -23,11 +23,24 @@ function App() {
   const TESTING_KEY = process.env.REACT_APP_TESTING_KEY
 
   useEffect(() => {
-    fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=1&apikey=${TESTING_KEY}`)
-      // fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=&apiKey=${MY_KEY}`)
-      .then(res => res.json())
-      .then(data => setItems(data.articles))
+    async function fetchData() {
+      try {
+        const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=1&apikey=${TESTING_KEY}`)
+        if (!response.ok) {
+          throw new Error('Network response was not ok.')
+        }
+        const data = await response.json()
+        setItems(data.articles)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData()
   }, [country, category])
+
+  // .then(res => res.json())
+  // .then(data => setItems(data.articles))
+  // fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=&apiKey=${MY_KEY}`)
 
   return (
     <div className="App mx-auto">

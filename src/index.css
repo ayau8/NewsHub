@@ -321,6 +321,34 @@ body {
   .contactus {
     font-size: 1em;
   }
+
+  .search-info {
+    height: 250px;
+  }
+
+
+  .search-box {
+    width: 90%;
+  }
+
+  .search-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .startdate,
+  .enddate,
+  .sorting,
+  .submit {
+    width: auto;
+    margin: 8px;
+    font-size: 0.8em;
+  }
+
 }
 
 
