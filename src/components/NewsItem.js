@@ -30,16 +30,16 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
     if (!isAlreadyBookmarked) {
       setClickBookmark(true);
       setAlreadyBookmark(true);
-      addBookmark({ image: item.urlToImage, title: item.title, description: item.description, url: item.url });
+      addBookmark({ image: item.image, title: item.title, description: item.description, url: item.url });
     } else {
       setClickBookmark(false);
       setAlreadyBookmark(false);
-      removeBookmark({ image: item.urlToImage, title: item.title, description: item.description, url: item.url });
+      removeBookmark({ image: item.image, title: item.title, description: item.description, url: item.url });
     }
   };
 
   return (
-    <div className="article backdrop-blur-xl h-full bg-orange-50/90">
+    <div className="article backdrop-blur-xl h-full bg-orange-50/90 dark:bg-gray-500">
       <a href={item.source["url"]}
         className="article backdrop-blur-xl">
         <div className="article-image">

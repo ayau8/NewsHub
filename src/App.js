@@ -43,8 +43,8 @@ function App() {
   // fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=&apiKey=${MY_KEY}`)
 
   return (
-    <div className="App mx-auto">
-      <div className="items-center dark:bg-sky-950 dark:text-white">
+    <div className="App mx-auto dark:bg-sky-900">
+      <div className="items-center dark:text-white">
         <SideBar
           currentPage={currentPage}
           postsPerpPage={postsPerPage}
@@ -54,7 +54,7 @@ function App() {
             {/* <div className="flex justify-between items-start"> */}
             <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines">
               {/* <Typewriter
-                words={['Top Headlines']}
+              words={['Top Headlines']}
                 loop={1}
               cursor
                 typeSpeed={170}

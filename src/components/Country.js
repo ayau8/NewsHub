@@ -30,12 +30,12 @@ function Country({ country, setCountry }) {
               className={`text-gray-300 cursor-pointer`}
               onClick={() => onClick(country.id, country.value)}
             >
-              <div className={`flex mr-8 text-center justify-center items-center rounded-md hover:bg-sky-200 country`}>
+              <div className={`flex mr-8 text-center justify-center items-center rounded-md country`}>
                 <img
                   src={country.src}
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125 ${activeCountry === country.id ? "grayscale-0" : "grayscale"}`}
                   alt=" " />
-                <span className={` text-slate-500 text-xl ml-4 country-name`}>{country.name}</span>-
+                <span className={` text-slate-500 text-xl ml-4 country-name`}>{country.name}</span>
               </div>
             </li>
           ))}
