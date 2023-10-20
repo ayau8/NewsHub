@@ -30,7 +30,7 @@ function Menu({ active, setActive, setCategory }) {
         {links.map(link => (
           <li
             key={link.id}
-            className={`${active === link.id ? "active" : "inactive"} text-center dark:text-white`}
+            className={`${active === link.id ? "active dark:bg-gray-800/80" : "inactive dark:bg-gray-400"} text-center dark:text-white`}
             onClick={() => onClick(link.id, link.value)}
           >
             <span>{link.name}</span>

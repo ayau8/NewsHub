@@ -241,6 +241,7 @@ body {
 @media screen and (max-width: 1600px) {
   html {
     font-size: 14px;
+    background-color: rgb(12 74 110);
   }
 
   .news-grid {

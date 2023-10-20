@@ -3,12 +3,16 @@ import { UilAngleRight } from '@iconscout/react-unicons'
 import { Link } from 'react-router-dom';
 import Logo from "../image/logo.png"
 import Bookmark from "../image/bookmark.png"
+import GrayBookmark from "../image/bookmark_gray.png"
 import TechCrunch from "../image/techcrunch.png"
 import Search from "../image/search.png"
 import Sun from "../image/sun.png"
+import GraySun from "../image/sun_gray.png"
 import Moon from "../image/moon.png"
 import Menu from "../image/menu.png"
+import GrayMenu from "../image/menu_gray.png"
 import Cross from "../image/cross.png"
+import GrayCross from "../image/cross_gray.png"
 
 function SideBar({ country, setCountry }) {
   const [open, setOpen] = useState(false)
@@ -102,7 +106,7 @@ function SideBar({ country, setCountry }) {
         <div className="flex items-center">
           <div className="text-gray-300 text-middle flex items-center cursor-pointer rounded-md menubar">
             <img
-              src={`${open ? Cross : Menu}`}
+              src={`${open && theme === "dark" ? GrayCross : !open && theme === "dark" ? GrayMenu : Menu}`}
               className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125`}
               onClick={() => setOpen(!open)}
               alt=" " />
@@ -119,17 +123,17 @@ function SideBar({ country, setCountry }) {
             </Link>
             <Link to="/bookmark">
               <img
-                src={Bookmark}
+                src={`${theme === "dark" ? GrayBookmark : Bookmark}`}
                 className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-5 mb-3`}
                 alt=" " />
               <span className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Bookmark</span>
             </Link>
             <img
-              src={`${theme === "dark" ? Sun : Moon}`}
+              src={`${theme === "dark" ? GraySun : Moon}`}
               className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-5 mb-3`}
               onClick={handleThemeSwitch}
               alt=" " />
-              <span className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Mode</span>
+            <span className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Mode</span>
           </div>
         </div>
       </div>
