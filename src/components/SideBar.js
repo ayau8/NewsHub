@@ -32,7 +32,7 @@ function SideBar({ country, setCountry }) {
 
   return (
     <div>
-      <div className="flex justify-between bg-gray-700 dark:bg-sky-50 h-28 w-11/12 mt-10 mx-auto relative rounded-lg p-4 z-10 sidebar">
+      <div className="flex justify-between bg-gray-700 dark:bg-sky-50 h-28 w-12/12 mx-auto p-4 z-10 sidebar relative">
         {/* < UilAngleRight
         className={`absolute cursor-pointer rounded-full -right-5 top-20 w-7 border-4 border-sky-950 p-2 bg-gray-200 ${!open && "rotate-180"}`}
         onClick={() => setOpen(!open)}
@@ -87,7 +87,7 @@ function SideBar({ country, setCountry }) {
           <Link to="/bookmark">
             <div className="text-gray-300 text-middle flex items-center cursor-pointer rounded-md hover:bg-sky-200 bookmark-phone">
               <img
-                src={Bookmark}
+                src={`${theme === "dark" ? GrayBookmark : Bookmark}`}
                 className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125`}
                 alt=" " />
               <span className={`text-gray-300 pl-4 mt-1 flex text-xl dark:text-black`}>Bookmark</span>
@@ -97,7 +97,7 @@ function SideBar({ country, setCountry }) {
 
         <div className="flex items-center">
           <img
-            src={`${theme === "dark" ? Sun : Moon}`}
+            src={`${theme === "dark" ? GraySun : Moon}`}
             className={`cursor-pointer duration-500 h-9 w-9 hover:scale-125 mode`}
             onClick={handleThemeSwitch}
             alt=" " />
@@ -123,13 +123,13 @@ function SideBar({ country, setCountry }) {
             </Link>
             <Link to="/bookmark">
               <img
-                src={`${theme === "dark" ? GrayBookmark : Bookmark}`}
+                src={Bookmark}
                 className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-5 mb-3`}
                 alt=" " />
               <span className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Bookmark</span>
             </Link>
             <img
-              src={`${theme === "dark" ? GraySun : Moon}`}
+              src={`${theme === "dark" ? Sun : Moon}`}
               className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-5 mb-3`}
               onClick={handleThemeSwitch}
               alt=" " />
