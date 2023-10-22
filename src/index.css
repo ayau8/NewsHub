@@ -6,14 +6,18 @@
 
 * {
   box-sizing: border-box;
+
+}
+
+html {
+  background: rgb(249, 244, 236);
+  background: radial-gradient(circle, rgba(249, 244, 236, 0.9452714679621849) 9%, rgba(250, 227, 219, 1) 50%, rgba(247, 225, 205, 0.9060557816876751) 85%);
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: 'Poppins', serif;
-  background: rgb(249, 244, 236);
-  background: radial-gradient(circle, rgba(249, 244, 236, 0.9452714679621849) 9%, rgba(250, 227, 219, 1) 50%, rgba(247, 225, 205, 0.9060557816876751) 85%);
 }
 
 
@@ -241,7 +245,7 @@ body {
 @media screen and (max-width: 1600px) {
   html {
     font-size: 14px;
-    background-color: rgb(12 74 110);
+    /* background-color: rgb(12 74 110); */
   }
 
   .news-grid {
@@ -327,9 +331,9 @@ body {
     height: 250px;
   }
 
-
   .search-box {
     width: 90%;
+    height: 50px
   }
 
   .search-categories {
@@ -345,7 +349,7 @@ body {
   .enddate,
   .sorting,
   .submit {
-    width: auto;
+    width: 130px;
     margin: 8px;
     font-size: 0.8em;
   }

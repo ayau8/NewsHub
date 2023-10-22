@@ -27,14 +27,14 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
   }, [isAlreadyBookmarked]);
 
   const toggleBookmark = () => {
+    setClickBookmark((prevClickBookmark) => !prevClickBookmark);
+
     if (!isAlreadyBookmarked) {
-      setClickBookmark(true);
       setAlreadyBookmark(true);
-      addBookmark({ image: item.image, title: item.title, description: item.description, url: item.url });
+      addBookmark({ id: item.id, image: item.image, title: item.title, description: item.description, url: item.url });
     } else {
-      setClickBookmark(false);
       setAlreadyBookmark(false);
-      removeBookmark({ image: item.image, title: item.title, description: item.description, url: item.url });
+      removeBookmark({ id: item.id, image: item.image, title: item.title, description: item.description, url: item.url });
     }
   };
 
@@ -63,7 +63,7 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
         </div>
         <div className="bookmark">
           <img
-            src={clickBookmark || alreadyBookmark ? RedHeart : BlackHeart}
+            src={alreadyBookmark ? RedHeart : BlackHeart}
             className="h-10 w-10 hover:scale-125 cursor-pointer duration-500"
             onClick={toggleBookmark}
             alt=" "

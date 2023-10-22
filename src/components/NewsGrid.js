@@ -15,16 +15,22 @@ function NewsGrid({ items }) {
   }, []);
 
   const addBookmark = article => {
-    const updatedBookmarks = [...bookmarkedArticles, article];
-    setBookmarkedArticles(updatedBookmarks);
-    localStorage.setItem("Bookmarks", JSON.stringify(updatedBookmarks));
+    if (!bookmarkedArticles.some(bookmark => bookmark.title === article.title)) {
+      const updatedBookmarks = [...bookmarkedArticles, article];
+      setBookmarkedArticles(updatedBookmarks);
+      localStorage.setItem("Bookmarks", JSON.stringify(updatedBookmarks));
+    }
   };
 
   const removeBookmark = article => {
-    const storedData = JSON.parse(localStorage.getItem("Bookmarks"));
-    const updatedData = storedData.filter(bookmark => bookmark.title !== article.title);
-    localStorage.setItem("Bookmarks", JSON.stringify(updatedData));
+    const isArticleInBookmarks = bookmarkedArticles.some(bookmark => bookmark.title === article.title);
+    if (isArticleInBookmarks) {
+      const updatedData = bookmarkedArticles.filter(bookmark => bookmark.title !== article.title);
+      setBookmarkedArticles(updatedData);
+      localStorage.setItem("Bookmarks", JSON.stringify(updatedData));
+    }
   };
+
 
   // const removeBookmark = article => {
   //   const temp = { ...bookmarkedArticles };

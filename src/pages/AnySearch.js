@@ -67,9 +67,9 @@ function AnySearch({ country, setCountry }) {
           country={country}
           setCountry={setCountry} />
         <div className="mt-9 w-11/12 mx-auto">
-          <h1 className="font-extrabold mt-16 ml-3 text-5xl">Search</h1>
+          <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white">Search</h1>
 
-          <div className="bg-gray-700/95 my-10 rounded-3xl mx-auto search-info">
+          <div className="bg-gray-700/95 my-10 rounded-3xl mx-auto search-info dark:bg-gray-200/70">
             <div className="p-5 text-lg text-center">
               <input
                 type="text"
@@ -105,7 +105,7 @@ function AnySearch({ country, setCountry }) {
 
               <button
                 type="submit"
-                className="border bg-yellow-400 hover:bg-sky-300 duration-300 text-black font-bold p-3 rounded-xl text-mg submit"
+                className="border bg-gray-700/50 text-white dark:bg-gray-200 dark:text-black hover:bg-sky-300 duration-200 font-bold p-3 rounded-xl text-mg submit"
                 onClick={handleSubmit}>Submit</button>
 
 
