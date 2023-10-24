@@ -31,10 +31,10 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
 
     if (!isAlreadyBookmarked) {
       setAlreadyBookmark(true);
-      addBookmark({ id: item.id, image: item.image, title: item.title, description: item.description, url: item.url });
+      addBookmark({ image: item.image, title: item.title, description: item.description, url: item.url });
     } else {
       setAlreadyBookmark(false);
-      removeBookmark({ id: item.id, image: item.image, title: item.title, description: item.description, url: item.url });
+      removeBookmark({ image: item.image, title: item.title, description: item.description, url: item.url });
     }
   };
 
@@ -46,11 +46,11 @@ function NewsItem({ item, id, addBookmark, removeBookmark, bookmarkedArticles })
           <img src={item.image} alt={item.title} />
         </div>
         <div className="article-title rounded-br-2xl font-extrabold bg-gray-700 text-white p-3 mt-2 text-xl">
-          <h1>{updated_title}</h1>
+          <h1 className="text-left">{updated_title}</h1>
         </div>
       </a >
       <div className="article-content">
-        <p className="article-description dark:text-white">
+        <p className="article-description text-left dark:text-white overflow-auto">
           {item.content}
         </p>
         {/* <div className="article-details ">
