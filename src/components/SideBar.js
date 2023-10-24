@@ -31,13 +31,13 @@ function SideBar({ country, setCountry }) {
   }
 
   return (
-    <div>
-      <div className="flex justify-between bg-gray-700 dark:bg-sky-50 h-28 w-12/12 mx-auto p-4 z-10 sidebar relative">
+    <>
+      <div className="flex justify-between bg-gray-700 dark:bg-sky-50 h-28 w-12/12 mx-auto p-4 z-10 w-screen sidebar relative">
         {/* < UilAngleRight
         className={`absolute cursor-pointer rounded-full -right-5 top-20 w-7 border-4 border-sky-950 p-2 bg-gray-200 ${!open && "rotate-180"}`}
         onClick={() => setOpen(!open)}
         style={{ color: "#362f9d", width: '40px', height: '40px' }} /> */}
-        <div className="flex gap-x-4 items-center logo-info">
+        <div className="flex gap-x-4 items-center logo-info ml-4">
           <Link to="/">
             <div className="flex items-center">
               <img
@@ -137,7 +137,7 @@ function SideBar({ country, setCountry }) {
           </div>
         </div>
       </div>
-    </div >
+    </>
   )
 }
 

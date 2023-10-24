@@ -35,7 +35,7 @@ function Country({ country, setCountry }) {
                   src={country.src}
                   className={`cursor-pointer duration-500 h-12 w-12 hover:scale-125 ${activeCountry === country.id ? "grayscale-0" : "grayscale"}`}
                   alt=" " />
-                <span className={` text-slate-500 text-xl ml-4 country-name`}>{country.name}</span>
+                <span className={` text-slate-500 text-xl ml-4 country-name dark:text-white`}>{country.name}</span>
               </div>
             </li>
           ))}

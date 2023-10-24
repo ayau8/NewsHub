@@ -20,6 +20,15 @@ body {
   font-family: 'Poppins', serif;
 }
 
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+
 
 .title {
   text-align: center;

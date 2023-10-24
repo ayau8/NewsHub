@@ -129,8 +129,8 @@ function AnySearch({ country, setCountry }) {
           <NewsGrid items={currentPosts} /> */}
           {/* <NewsGrid items={currentPosts} /> */}
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div >
   )
 }
