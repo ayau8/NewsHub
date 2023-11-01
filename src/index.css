@@ -337,7 +337,7 @@ body {
   }
 
   .search-info {
-    height: 250px;
+    height: 275px;
   }
 
   .search-box {
@@ -361,10 +361,10 @@ body {
     width: 130px;
     margin: 8px;
     font-size: 0.8em;
+    height: 45px;
   }
 
 }
-
 
 @media screen and (min-width: 400px) {
   .menubar {

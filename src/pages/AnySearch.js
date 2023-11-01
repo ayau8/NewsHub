@@ -67,7 +67,8 @@ function AnySearch({ country, setCountry }) {
           country={country}
           setCountry={setCountry} />
         <div className="mt-9 w-11/12 mx-auto">
-          <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white">Search</h1>
+        <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white text-left">
+            Search</h1>
 
           <div className="bg-gray-700/95 my-10 rounded-3xl mx-auto search-info dark:bg-gray-200/70">
             <div className="p-5 text-lg text-center">
