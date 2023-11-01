@@ -17,7 +17,7 @@ function App() {
   const [category, setCategory] = useState("general")
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(8)
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -35,17 +35,17 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        setLoading(true)
+        // setLoading(true)
         const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=1&apikey=${TESTING_KEY}`)
         if (!response.ok) {
           throw new Error('Network response was not ok.')
         } else {
           const data = await response.json()
           setItems(data.articles)
-          setLoading(false)
+          // setLoading(false)
         }
       } catch (error) {
-        setLoading(false);
+        console.log(error)
       }
     }
     fetchData()
