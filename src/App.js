@@ -32,7 +32,6 @@ function App() {
   //   }, 5000)
   // }, [])
 
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -58,24 +57,7 @@ function App() {
 
   return (
     <div className="App mx-auto dark:bg-sky-900 flex flex-col min-h-screen">
-      {loading ?
-        <div>
-          <BounceLoader
-            color={'#F37A24'}
-            loading={loading}
-            size={80}
-          />
-          {/* <Typewriter
-            words={['NewsHub']}
-            loop={1}
-            cursor
-            typeSpeed={180}
-            deleteSpeed={150}
-            size={100}
-          /> */}
-        </div> :
-        <>
-          <div className="items-center dark:text-white">
+               <div className="items-center dark:text-white">
             <SideBar
               currentPage={currentPage}
               postsPerpPage={postsPerPage}
@@ -106,10 +88,26 @@ function App() {
             </div>
             <Footer />
           </div>
-        </>
-      }
     </div >
   );
 }
 
 export default App;
+
+
+// {loading ?
+//   <div>
+//     <BounceLoader
+//       color={'#F37A24'}
+//       loading={loading}
+//       size={80}
+//     />
+//     {/* <Typewriter
+//       words={['NewsHub']}
+//       loop={1}
+//       cursor
+//       typeSpeed={180}
+//       deleteSpeed={150}
+//       size={100}
+//     /> */}
+//   </div> :

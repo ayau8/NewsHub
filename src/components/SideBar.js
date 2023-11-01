@@ -112,28 +112,28 @@ function SideBar({ country, setCountry }) {
               alt=" " />
           </div>
         </div>
-        <div className={`h-fit bg-gray-100 ${open ? "w-64" : "w-0"} backdrop-filter backdrop-blur-xl bg-opacity-50 duration-500 flex absolute z-0 rounded-xl`}>
+        <div className={`h-fit bg-gray-100 ${open ? "w-64" : "w-0"} backdrop-filter backdrop-blur-xl bg-opacity-70 duration-500 flex absolute z-0 rounded-xl`}>
           <div className="flex-col m-5">
             <Link to="/search">
               <img
                 src={Search}
-                className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-5 mb-3`}
+                className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-6 mb-3`}
                 alt=" " />
-              <span className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Search</span>
+              <p className={`text-left text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Search</p>
             </Link>
             <Link to="/bookmark">
               <img
                 src={Bookmark}
-                className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-5 mb-3`}
+                className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-10 mb-3`}
                 alt=" " />
-              <span className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Bookmark</span>
+              <p className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Bookmark</p>
             </Link>
             <img
               src={`${theme === "dark" ? Sun : Moon}`}
-              className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-5 mb-3`}
+              className={`cursor-pointer duration-500 h-8 w-8 hover:scale-125 fill-white mt-14 mb-3`}
               onClick={handleThemeSwitch}
               alt=" " />
-            <span className={`text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Mode</span>
+            <p className={`text-left text-gray-300 text-xl dark:text-black ${open ? "text-gray-800" : "hidden"}`}>Mode</p>
           </div>
         </div>
       </div>
