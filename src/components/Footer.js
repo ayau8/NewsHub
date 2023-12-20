@@ -21,7 +21,7 @@ function Footer() {
   // }
 
   return (
-    <div className="flex justify-end bg-gray-700 dark:bg-sky-50 h-24 w-12/12 mx-auto p-8 mt-6 ">
+    <div className="justify-end bg-gray-700 dark:bg-sky-50 w-12/12 mx-auto p-8 mt-6">
       <div className="flex items-center">
         <ul>
           <li

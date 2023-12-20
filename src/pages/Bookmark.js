@@ -16,23 +16,24 @@ function Bookmark() {
 
 
   return (
-    <div className="App mx-auto dark:bg-sky-900 flex flex-col min-h-screen">
+    <div>
       <div className="items-center dark:bg-sky-950 dark:text-white">
         <SideBar
           country={country}
-          setCountry={setCountry} />
+  setCountry={setCountry} />
         <div className="mt-9 w-11/12 mx-auto">
           <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white text-left">Bookmarks</h1>
           {/* <Pagination totalPosts={techCrunchNews.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} /> */}
           {/* <NewsGrid items={currentPosts} /> */}
           <div>
             <ul className="news-grid relative">
-              {bookmark_deserialized
+              {bookmark_deserialized === null | bookmark_deserialized.length === 0 ? "You do not have any bookmark currently." : 
+              bookmark_deserialized
                 .filter(article => article !== null)
                 .reverse()
                 .map((article) => (
                   <li key={article.id}>
-                    <div className="article  bg-orange-50/90 dark:bg-gray-500">
+                    <div className="article  bg-orange-50/90 dark:bg-gray-500 h-full">
                       <div className="article-image">
                         <img src={article.image} alt={article.title} />
                       </div>
@@ -52,7 +53,7 @@ function Bookmark() {
             </ul>
           </div>
         </div>
-      <Footer />
+      {/* <Footer /> */}
       </div>
     </div>
   )
