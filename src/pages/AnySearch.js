@@ -66,7 +66,7 @@ function AnySearch({ country, setCountry }) {
         <SideBar
           country={country}
           setCountry={setCountry} />
-        <div className="mt-9 w-11/12 mx-auto">
+        <div className="my-9 w-11/12 mx-auto">
         <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white text-left">
             Search</h1>
 
@@ -130,7 +130,7 @@ function AnySearch({ country, setCountry }) {
           <NewsGrid items={currentPosts} /> */}
           {/* <NewsGrid items={currentPosts} /> */}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div >
   )

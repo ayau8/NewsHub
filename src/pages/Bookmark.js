@@ -16,7 +16,7 @@ function Bookmark() {
 
 
   return (
-    <div className="App mx-auto dark:bg-sky-900 flex flex-col min-h-screen">
+    <div>
       <div className="items-center dark:bg-sky-950 dark:text-white">
         <SideBar
           country={country}
@@ -33,7 +33,7 @@ function Bookmark() {
                 .reverse()
                 .map((article) => (
                   <li key={article.id}>
-                    <div className="article  bg-orange-50/90 dark:bg-gray-500">
+                    <div className="article  bg-orange-50/90 dark:bg-gray-500 h-full">
                       <div className="article-image">
                         <img src={article.image} alt={article.title} />
                       </div>
@@ -53,7 +53,7 @@ function Bookmark() {
             </ul>
           </div>
         </div>
-      <Footer />
+      {/* <Footer /> */}
       </div>
     </div>
   )
