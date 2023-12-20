@@ -21,7 +21,7 @@ function Bookmark() {
         <SideBar
           country={country}
   setCountry={setCountry} />
-        <div className="mt-9 w-11/12 mx-auto">
+        <div className="my-9 w-11/12 mx-auto">
           <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white text-left">Bookmarks</h1>
           {/* <Pagination totalPosts={techCrunchNews.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} /> */}
           {/* <NewsGrid items={currentPosts} /> */}
