@@ -67,7 +67,7 @@ function App() {
                 {/* <div className="flex justify-between items-start"> */}
                 <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white">
                   Top Headlines
-                </h1>
+              </h1>
                 <Country
                   country={country}
                   setCountry={setCountry} />

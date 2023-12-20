@@ -10,7 +10,7 @@ function AnySearch({ country, setCountry }) {
   const [filterData, setFilterData] = useState([])
   const [startDate, setStartDate] = useState(Date.now())
   const [endDate, setEndDate] = useState(Date.now())
-  const [sortBy, setSortBy] = useState('publishedAt')
+  const [sortBy, setSortBy] = useState('publishedAt') 
   const [searchInputFromSubmit, setSearchInputFromSubmit] = useState('')
 
   const TESTING_KEY = process.env.REACT_APP_TESTING_KEY
@@ -19,7 +19,7 @@ function AnySearch({ country, setCountry }) {
     const searchTerm = searchInputFromSubmit || 'Apple'
     async function fetchData() {
       try {
-        const response = await fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&lang=en&country=us&max=1&sortby=${sortBy}&from=${startDate}&to=${endDate}&apikey=${TESTING_KEY}`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=${searchTerm}&lang=en&country=us&max=4&sortby=${sortBy}&from=${startDate}&to=${endDate}&apikey=${TESTING_KEY}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
