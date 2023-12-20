@@ -36,7 +36,7 @@ function App() {
     async function fetchData() {
       try {
         // setLoading(true)
-        const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=1&apikey=${TESTING_KEY}`)
+        const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&country=${country}&max=3&apikey=${TESTING_KEY}`)
         if (!response.ok) {
           throw new Error('Network response was not ok.')
         } else {
@@ -56,18 +56,18 @@ function App() {
   // fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=&apiKey=${MY_KEY}`)
 
   return (
-    <div className="App mx-auto dark:bg-sky-900 flex flex-col min-h-screen">
+    <div>
                <div className="items-center dark:text-white">
             <SideBar
               currentPage={currentPage}
               postsPerpPage={postsPerPage}
               currentPosts={currentPosts} />
-            <div className=" mt-9 w-11/12 mx-auto">
+            <div className=" my-9 w-11/12 mx-auto">
               <div className='relative text-left'>
                 {/* <div className="flex justify-between items-start"> */}
                 <h1 className="font-extrabold mt-8 ml-3 text-5xl headlines dark:text-white">
                   Top Headlines
-              </h1>
+                </h1>
                 <Country
                   country={country}
                   setCountry={setCountry} />
@@ -86,7 +86,7 @@ function App() {
               </div>
               <NewsGrid items={currentPosts} />
             </div>
-            <Footer />
+            {/* <Footer /> */}
           </div>
     </div >
   );
