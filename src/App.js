@@ -56,8 +56,8 @@ function App() {
   // fetch(`https://newsapi.org/v2/top-headlines?pageSize=36&country=${country}&category=&apiKey=${MY_KEY}`)
 
   return (
-    <div>
-               <div className="items-center dark:text-white">
+    <div className="App dark:bg-sky-900">
+               <div className= "dark:text-white">
             <SideBar
               currentPage={currentPage}
               postsPerpPage={postsPerPage}
